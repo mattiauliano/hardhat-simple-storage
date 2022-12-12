@@ -59,7 +59,7 @@ describe("SimpleStorage", () => {
         );
         await transactionResponse.wait(1);
 
-        const mattiaValue = await simpleStorage.nameToFavoriteNumber["Mattia"];
+        const mattiaValue = await simpleStorage.nameToFavoriteNumber("Mattia");
         const expectedValue = "10";
         assert.equal(mattiaValue, expectedValue);
     });
