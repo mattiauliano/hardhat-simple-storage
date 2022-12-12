@@ -3,6 +3,8 @@ require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 // Import hardhat-ethers to verify contracts
 require("@nomiclabs/hardhat-etherscan");
+// To get access to the block-number task
+require("./tasks/block-number");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
@@ -26,5 +28,6 @@ module.exports = {
     etherscan: {
         apiKey: ETHERSCAN_API_KEY,
     },
+    // Compiler version --> MUST be compatible to the contract version
     solidity: "0.8.7",
 };
