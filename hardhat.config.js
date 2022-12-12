@@ -5,13 +5,16 @@ require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 // To get access to the block-number task
 require("./tasks/block-number");
+// Importing hardhat gas reporter
+require("hardhat-gas-reporter");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
-// Get rpc url and private key to use in goerli network
-const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
+// Get env variables and give an alternative fallback to avoid errors
+const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL || "https://eth-goerli";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "0xkey";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "key";
+const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || "key";
 
 module.exports = {
     // Default local fake network
@@ -33,6 +36,15 @@ module.exports = {
     // Adding a new command "verify"
     etherscan: {
         apiKey: ETHERSCAN_API_KEY,
+    },
+    // Config hardhat gas reporter
+    gasReporter: {
+        // Temporarily false
+        enabled: false,
+        outputFile: "gas-report.txt",
+        noColors: true,
+        currency: "USD",
+        coinmarketcap: COINMARKETCAP_API_KEY,
     },
     // Compiler version --> MUST be compatible to the contract version
     solidity: "0.8.7",
