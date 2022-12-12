@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
-// Import dotenv to get access to .env
+// Importing dotenv to get access to .env
 require("dotenv").config();
-// Import hardhat-ethers to verify contracts
+// Importing hardhat-ethers to verify contracts
 require("@nomiclabs/hardhat-etherscan");
 // To get access to the block-number task
 require("./tasks/block-number");
@@ -22,6 +22,12 @@ module.exports = {
             url: GOERLI_RPC_URL,
             accounts: [PRIVATE_KEY],
             chainId: 5,
+        },
+        // Adding localhost to exploit hardhat nodes
+        localhost: {
+            url: "http://127.0.0.1:8545/",
+            // Accounts provided by Hardhat
+            chainId: 31337,
         },
     },
     // Adding a new command "verify"
