@@ -7,6 +7,8 @@ require("@nomiclabs/hardhat-etherscan");
 require("./tasks/block-number");
 // Importing hardhat gas reporter
 require("hardhat-gas-reporter");
+// Importing solidity-coverage to check how many lines of code are covered in a test
+require("solidity-coverage");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
