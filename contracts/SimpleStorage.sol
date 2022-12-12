@@ -24,6 +24,10 @@ contract SimpleStorage {
         nameToFavoriteNumber[_name] = _favoriteNumber; // Mapping execution
     }
 
+    function getPeopleLength() public view returns (uint256) {
+        return people.length;
+    }
+
     // Store favoriteNumber
     function store(uint256 _favoriteNumber) public virtual {
         favoriteNumber = _favoriteNumber;
