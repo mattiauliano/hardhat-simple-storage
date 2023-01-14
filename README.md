@@ -7,7 +7,13 @@ Try running some of the following tasks:
 ```shell
 npx hardhat help
 npx hardhat test
-REPORT_GAS=true npx hardhat test
+npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+## Acquired knowledge
+1. Hardhat Environment Basics
+2. Creating a custom hardhat task
+3. Testing with Chai
+4. Prettierrc
